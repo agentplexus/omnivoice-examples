@@ -5,19 +5,19 @@ A voice agent example using Twilio Media Streams for telephony transport and Ele
 ## Architecture
 
 ```
-┌──────────┐        ┌─────────────────┐        ┌───────────────────────────────┐
-│  Caller  │◄──────►│     Twilio      │◄──────►│         OmniVoice             │
-│  (PSTN)  │  PSTN  │   Media         │WebSocket│                               │
+┌──────────┐        ┌─────────────────┐         ┌──────────────────────────────┐
+│  Caller  │◄──────►│     Twilio      │◄───────►│         OmniVoice            │
+│  (PSTN)  │  PSTN  │   Media         │WebSocket│                              │
 └──────────┘        │   Streams       │ (μ-law) │  ┌─────┐           ┌─────┐   │
                     └─────────────────┘         │  │ STT │◄──────────│ TTS │   │
-                                                │  └──┬──┘  (text)  └──┬──┘   │
+                                                │  └──┬──┘  (text)   └──┬──┘   │
                                                 │     │                 │      │
                                                 │     ▼                 │      │
                                                 │  ┌─────────────────┐  │      │
                                                 │  │       LLM       │──┘      │
                                                 │  │    (Claude)     │         │
                                                 │  └─────────────────┘         │
-                                                └───────────────────────────────┘
+                                                └──────────────────────────────┘
 ```
 
 ## Key Features
