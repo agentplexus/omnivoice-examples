@@ -6,9 +6,9 @@ A voice agent example using Twilio Media Streams for telephony transport and Ele
 
 ```
 ┌──────────┐        ┌─────────────────┐         ┌──────────────────────────────┐
-│  Caller  │◄──────►│     Twilio      │◄───────►│         OmniVoice            │
-│  (PSTN)  │  PSTN  │   Media         │WebSocket│                              │
-└──────────┘        │   Streams       │ (μ-law) │  ┌─────┐           ┌─────┐   │
+│  Caller  │◄──────►│      Twilio     │◄───────►│         OmniVoice            │
+│  (PSTN)  │  PSTN  │      Media      │WebSocket│                              │
+└──────────┘        │      Streams    │ (μ-law) │  ┌─────┐           ┌─────┐   │
                     └─────────────────┘         │  │ STT │◄──────────│ TTS │   │
                                                 │  └──┬──┘  (text)   └──┬──┘   │
                                                 │     │                 │      │
