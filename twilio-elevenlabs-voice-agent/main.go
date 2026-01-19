@@ -76,7 +76,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to create Twilio transport: %v", err)
 	}
-	defer twilioTransport.Close()
+	defer func() {
+		if err := twilioTransport.Close(); err != nil {
+			slog.Error("failed to close Twilio transport", "error", err)
+		}
+	}()
 
 	// Handle shutdown
 	sigCh := make(chan os.Signal, 1)
